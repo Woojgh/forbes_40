@@ -1,0 +1,3 @@
+[run]
+source = forbes
+omit = forbes/test*
