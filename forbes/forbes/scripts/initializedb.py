@@ -15,8 +15,8 @@ from ..models import (
     get_session_factory,
     get_tm_session,
     )
-from ..models import Billionaire
-from forbes.data import BILLIES
+from forbes.models import Billionaire
+from forbes.data.billionaires import BILLIES
 
 
 def usage(argv):
@@ -33,6 +33,7 @@ def main(argv=sys.argv):
     options = parse_vars(argv[2:])
     setup_logging(config_uri)
     settings = get_appsettings(config_uri, options=options)
+    # settings['sqlalchemy.url'] = os.environ.get('DATABASE_URL')
 
     engine = get_engine(settings)
     Base.metadata.create_all(engine)
@@ -46,7 +47,7 @@ def main(argv=sys.argv):
             new_billie = Billionaire(
                 name=item['name'],
                 age=item['age'],
-                net_worth=item['net_worth'],
+                networth=item['networth'],
                 source=item['source'],
                 country=item['country']
             )

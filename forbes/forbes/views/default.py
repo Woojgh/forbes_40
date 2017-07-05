@@ -4,7 +4,7 @@ from forbes.models import Billionaire
 
 
 @view_config(route_name='billie_view', renderer='../templates/listing.jinja2')
-def list_view(request):
+def billie_view(request):
     """View for the main listing page."""
     billie_entries = request.dbsession.query(Billionaire).all()
     return {"billie_entries": billie_entries}

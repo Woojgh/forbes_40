@@ -12,7 +12,7 @@ class Billionaire(Base):
     rank = Column(Integer, primary_key=True)
     name = Column(Unicode)
     age = Column(Integer)
-    net_worth = Column(Integer)
+    networth = Column(Integer)
     source = Column(Unicode)
     country = Column(Unicode)
 
@@ -20,8 +20,8 @@ class Billionaire(Base):
         output = {}
         output['rank'] = self.id
         output['name'] = self.title
-        output['age'] = self.body
-        output['net_worth'] = self.net_worth
+        output['age'] = self.age
+        output['networth'] = self.networth
         output['source'] = self.source
         output['country'] = self.country
         return output
