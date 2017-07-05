@@ -1,0 +1,17 @@
+{% extends "layout.jinja2" %}
+{% block top %}
+    {% if billie_entries %}
+        {% for billies in billie_entries %}
+            <article class="billies-list">
+                <hr/>
+                <p><strong>{{ billies.name }}</strong></p>
+                <p>Age <strong>{{ billies.age }}</strong></p>
+                <p>Net Worth <strong>{{ billies.net_worth }}</strong></p>
+                <p>Industry <strong>{{ billies.source }}</strong></p>
+                <p>Country <strong>{{ billies.coutry }}</strong></p>
+            </article>
+        {% endfor %}
+    {% else %}
+        <p>You have no billie to list.</p>
+    {% endif %}
+{% endblock %}
