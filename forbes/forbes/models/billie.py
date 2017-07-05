@@ -2,6 +2,7 @@ from sqlalchemy import (
     Column,
     Integer,
     Unicode,
+    BigInteger,
 )
 
 from .meta import Base
@@ -12,7 +13,7 @@ class Billionaire(Base):
     rank = Column(Integer, primary_key=True)
     name = Column(Unicode)
     age = Column(Integer)
-    networth = Column(Integer)
+    networth = Column(BigInteger)
     source = Column(Unicode)
     country = Column(Unicode)
 
