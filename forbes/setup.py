@@ -56,7 +56,7 @@ setup(
             'main = forbes:main',
         ],
         'console_scripts': [
-            'initialize_forbes_db = forbes.scripts.initializedb:main',
+            'indb = forbes.scripts.initializedb:main',
         ],
     },
 )
