@@ -15,7 +15,8 @@ from ..models import (
     get_session_factory,
     get_tm_session,
     )
-from ..models import MyModel
+from ..models import Billionaire
+from forbes.data import BILLIES
 
 
 def usage(argv):
@@ -40,6 +41,15 @@ def main(argv=sys.argv):
 
     with transaction.manager:
         dbsession = get_tm_session(session_factory, transaction.manager)
+        billies = []
+        for item in BILLIES:
+            new_billie = Billionaire(
+                name=item['name'],
+                age=item['age'],
+                net_worth=item['net_worth'],
+                source=item['source'],
+                country=item['country']
+            )
+            billies.append(new_billie)
 
-        model = MyModel(name='one', value=1)
-        dbsession.add(model)
+        dbsession.add_all(billies)
